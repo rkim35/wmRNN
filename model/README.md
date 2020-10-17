@@ -12,7 +12,7 @@ task_type = 'xor';
 num_mods = 40;
 fr_lim = [0 100];
 perf_thr = 0.95;
-model_dir = '/cnl/chaos/ROBERT/wm_intrinsic_timescales/models/final/xor/FIX_P_rec_0.2_Taus_4.0_25.0';
+model_dir = <DIRECTORY TO THE DMS_OSF FOLDER>;
 dms_out = fnc_get_models(model_dir, task_type, fr_lim, true, perf_thr, num_mods);
 ```
 
