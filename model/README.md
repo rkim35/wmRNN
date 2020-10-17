@@ -7,14 +7,16 @@ NOTE: The DMS data folder (DMS\_OSF) contains both poor and good performance DMS
 The main function for extracting parameters from a group of trained RNNs is called `fnc_get_models.m`. Run the following MATLAB code to extract parameters from the good performance DMS RNNs:
 
 ```
-% Load the DMS RNNs
-task_type = 'xor';
-num_mods = 40;
-fr_lim = [0 100];
-perf_thr = 0.95;
+% Load the good performance DMS RNNs
+task_type = 'xor'; % Task name (either 'xor' or 'afc')
+num_mods = 40; % number of models to load
+fr_lim = [0 100]; % firing rate threshold ([min max]) in Hz
+perf_thr = 0.95; % include only RNNs whose task performance > perf_thr
 model_dir = <DIRECTORY TO THE DMS_OSF FOLDER>;
 dms_out = fnc_get_models(model_dir, task_type, fr_lim, true, perf_thr, num_mods);
 ```
+
+The above code will return all the DMS RNNs whose average task performance is greater than 95% (i.e., 0.95).
 
 
 
