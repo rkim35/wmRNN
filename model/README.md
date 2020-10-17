@@ -20,7 +20,9 @@ The above code will return all the DMS RNNs whose average task performance is gr
 
 ```
 figure('Units', 'Inch', 'Outerposition', [0 0 5 4]);
-[~, edges] = histcounts(log10(dms_out.taus), [0.7:0.1:2.7]);                                             histogram(dms_out.taus, 10.^edges, 'Normalization', 'probability', 'FaceColor', 'b');                    set(gca, 'XScale', 'log'); axis tight; hold on;     
+[~, edges] = histcounts(log10(dms_out.taus), [0.7:0.1:2.7]);
+histogram(dms_out.taus, 10.^edges, 'Normalization', 'probability', 'FaceColor', 'b');
+set(gca, 'XScale', 'log'); axis tight; hold on;
 ```
 
 To plot the autocorrelation curves (i.e., Fig. 2d center), run the following:
@@ -33,5 +35,6 @@ plot(nanmean(dms_out.auto_c(:, :)), 'wo-', 'linewidth', 2, 'markers', 8, 'Marker
 xlim([0.5, 12])
 ```
 
+##
 
 
