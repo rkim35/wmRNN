@@ -3,7 +3,7 @@ First, download the trained RNNs from [here](https://osf.io/md4wg/). For the DMS
 
 NOTE: The DMS data folder (DMS\_OSF) contains both poor and good performance DMS RNNs.
 
-## Extracting all the parameters from the trained networks
+## Neuronal timescales
 The main function for extracting parameters from a group of trained RNNs is called `fnc_get_models.m`. Run the following MATLAB code to extract parameters from the good performance DMS RNNs:
 
 ```
@@ -16,8 +16,22 @@ model_dir = <DIRECTORY TO THE DMS_OSF FOLDER>;
 dms_out = fnc_get_models(model_dir, task_type, fr_lim, true, perf_thr, num_mods);
 ```
 
-The above code will return all the DMS RNNs whose average task performance is greater than 95% (i.e., 0.95).
+The above code will return all the DMS RNNs whose average task performance is greater than 95% (i.e., 0.95). `dms_out` is a struct variable containing all the parameters pulled from the trained RNNs. To plot the distribution of the neuronal timescales from this group of RNNs (i.e., Fig. 2c center), run the following code:
 
+```
+figure('Units', 'Inch', 'Outerposition', [0 0 5 4]);
+[~, edges] = histcounts(log10(dms_out.taus), [0.7:0.1:2.7]);                                             histogram(dms_out.taus, 10.^edges, 'Normalization', 'probability', 'FaceColor', 'b');                    set(gca, 'XScale', 'log'); axis tight; hold on;     
+```
+
+To plot the autocorrelation curves (i.e., Fig. 2d center), run the following:
+
+```
+figure('Units', 'Inch', 'Outerposition', [0 0 5 4]);
+axis tight; hold on;
+plot(dms_out.auto_c(1:1:end, :)', 'b');
+plot(nanmean(dms_out.auto_c(:, :)), 'wo-', 'linewidth', 2, 'markers', 8, 'MarkerFace', 'b')
+xlim([0.5, 12])
+```
 
 
 
