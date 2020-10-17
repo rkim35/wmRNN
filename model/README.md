@@ -35,6 +35,38 @@ plot(nanmean(dms_out.auto_c(:, :)), 'wo-', 'linewidth', 2, 'markers', 8, 'Marker
 xlim([0.5, 12])
 ```
 
-##
+## Cross-temporal discriminability analysis
+The main script for the cross-temporal analysis (i.e., Fig. 3) is `cross_temporal_disc.m`. See the Methods in the manuscript for more details. Running the script will generate a MATLAB file (`cross_temporal_results_quantile.mat`). The following code can be used to plot the cross-temporal discriminability matrices:
+
+```
+load("cross_temporal_results_quantile.mat")
+
+stim_on = 0.15;
+stim_dur = 0.25;
+delay = 0.75;
+sim_t = t(1:100:end) - stim_on;
+
+% SHORT TAU GROUP
+figure('Units', 'Inch', 'Outerposition', [0 0 4 4]);
+imagesc(sim_t, sim_t, corrs_short, [0, 1.00]);
+set(gca, 'YDir', 'normal');
+xlim([-stim_on, stim_dur+delay]); ylim([-stim_on, stim_dur+delay]); hold on;
+plot([0 0], ylim, 'w-', 'linewidth', 3);
+plot(xlim, [0 0], 'w-', 'linewidth', 3);
+plot([stim_dur stim_dur], ylim, 'w-', 'linewidth', 3);
+plot(xlim, [stim_dur stim_dur], 'w-', 'linewidth', 3);
+axis square; hold on;
+
+% LONG TAU GROUP
+figure('Units', 'Inch', 'Outerposition', [0 0 4 4]);
+imagesc(sim_t, sim_t, corrs_long, [0, 1.00]);
+set(gca, 'YDir', 'normal');
+xlim([-stim_on, stim_dur+delay]); ylim([-stim_on, stim_dur+delay]); hold on;
+plot([0 0], ylim, 'w-', 'linewidth', 3);
+plot(xlim, [0 0], 'w-', 'linewidth', 3);
+plot([stim_dur stim_dur], ylim, 'w-', 'linewidth', 3);
+plot(xlim, [stim_dur stim_dur], 'w-', 'linewidth', 3);
+axis square; hold on;
+```
 
 
