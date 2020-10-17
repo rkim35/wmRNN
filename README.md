@@ -22,4 +22,15 @@ All the scripts related to the model analysis are located in the `model` folder.
 ### Experimental Data Analysis
 All the scripts related to the experimental data analysis are located in the `data` folder. The folder also contains a README file showing how to use the included scripts.
 
+## Citation
+If you use this repo for your research, please cite our work:
 
+```
+@article {Kim_2020,
+  author = {Kim, Robert and Sejnowski, Terrence J.},
+  title = {Strong inhibitory signaling underlies stable temporal dynamics and working memory in spiking neural networks},
+  year = {2020},
+  journal = {bioRxiv}
+}
+
+```
