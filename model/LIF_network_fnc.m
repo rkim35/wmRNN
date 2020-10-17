@@ -1,11 +1,10 @@
 % Name: Robert Kim
 % Date: 10-22-2018
-% Email: robert.f.kim@gmail.com
-% LIF_network_RK.m
+% Email: rkim@salk.edu
+% LIF_network_fnc.m
 % Description: Script to construct a network of LIF units and
 % transfer the trained weights from the continuous rate model
 % NOTE: LIF network implementation taken from LIFFORCESINE.m from NicolaClopath2017
-% NOTE: edited to add an option to remove auto-connections
 
 function [W, REC, spk, rs, all_fr, out, params] = LIF_network_fnc(model_path,...
 scaling_factor, u, stims, downsample, shuffle_weights, use_this_W, shuffle_w_in, syn_type, remove_autoconn)
@@ -18,6 +17,16 @@ scaling_factor, u, stims, downsample, shuffle_weights, use_this_W, shuffle_w_in,
 %       - mode: "none", "exc" (depolarizing), or "inh" (hyperpolarizing)
 %       - dur: [stim_onset stim_offset]
 %       - units: vector containing unit indices to be stimulated
+%   - downsample: downsample factor (1 => no downsampling, 2 => every other sample, etc...)
+%                 While downsample > 1 can speed up the conversion, the LIF network
+%                 might not be as robust as the one without downsampling
+%   - use_initial_weights: whether to use w0 (random initial weights). This is mainly used
+%                          for testing.
+%   - shuffle_w_in: whether to shuffle the input weights (w_in)
+%   - syn_type: for modulating synapses (grouped by synaptic connection types). For example,
+%               'ee_inc' will INCrease E->E connection strength by 30%. 'ei_dec' will DECrease
+%               I->E by 30%, etc...
+%   - remove_autoconn: whether to remove autapses (self-connections)
 %
 % OUTPUT
 %   - W: recurrent connectivity matrix scaled by the scaling factor (N x N)

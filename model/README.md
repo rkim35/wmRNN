@@ -69,4 +69,11 @@ plot(xlim, [stim_dur stim_dur], 'w-', 'linewidth', 3);
 axis square; hold on;
 ```
 
+## Modulating synaptic connections
+For modulating certain synapses (Figs. 5 and 6), `LIF_network_fnc.m` can be used. This script is a modified version of our previous script included in https://github.com/rkim35/spikeRNN/tree/master/spiking.
+
+## Fano factor
+`compue_fano.m` can be used to compute Fano factors from the trained models (Fig. 7).
+
+
 
