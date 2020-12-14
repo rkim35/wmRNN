@@ -32,7 +32,8 @@ If you use this repo for your research, please cite our work:
   author = {Kim, Robert and Sejnowski, Terrence J.},
   title = {Strong inhibitory signaling underlies stable temporal dynamics and working memory in spiking neural networks},
   year = {2020},
-  journal = {bioRxiv}
+  journal = {Nature Neuroscience},
+  doi = {https://doi.org/10.1038/s41593-020-00753-w},
 }
 
 ```
