@@ -2,9 +2,11 @@
 
 ## Overview
 
-This repository provides the code for the model and analyses presented in [this paper](https://www.biorxiv.org/content/10.1101/2020.02.11.944751v1):
+This repository provides the code for the model and analyses presented in [this paper](https://www.nature.com/articles/s41593-020-00753-w):
 
-Kim R. & Sejnowski TJ. Strong inhibitory signaling underlies stable temporal dynamics and working memory in spiking neural networks. Preprint at BioRxiv https://www.biorxiv.org/content/10.1101/2020.02.11.944751v1 (2020).
+Kim R. & Sejnowski TJ. Strong inhibitory signaling underlies stable temporal dynamics and working memory in spiking neural networks. _Nature Neuroscience_ (2020).
+
+Preprint available [here](https://www.biorxiv.org/content/10.1101/2020.02.11.944751v1).
 
 ## Recurrent Neural Network (RNN) model
 For this work, we used the method that we previously developed (reported [here](https://www.pnas.org/content/116/45/22811)) to construct spiking RNNs to perform WM tasks. For more details and access to the code, please refer to [this GitHub repository](https://github.com/rkim35/spikeRNN). The trained RNNs analyzed in the study are also available [here](https://osf.io/md4wg/).
